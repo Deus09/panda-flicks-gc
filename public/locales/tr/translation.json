@@ -3,7 +3,21 @@
     "myLog": "İzlediklerim",
     "discover": "Keşfet",
     "profile": "Profil",
-    "social":"Akış",
+    "social": "Sosyal",
     "lists": "Listeler"
+  },
+  "addMovieModal": {
+    "title": "Yeni Film Ekle",
+    "movieTitleLabel": "Film Adı",
+    "movieTitlePlaceholder": "Örn: The Matrix",
+    "commentLabel": "Yorumun",
+    "commentPlaceholder": "Film hakkında ne düşünüyorsun?",
+    "saveButton": "Kaydet",
+    "ratingLabel": "Puanınız:",
+    "watchDateLabel": "İzleme Tarihi",
+    "watchLaterLabel": "Daha Sonra İzle",
+    "enhanceCommentButton": "Yorumumu Geliştir",
+    "chatWithCharacterButton": "Karakterle Sohbet Et",
+    "cancelButton": "İptal"
   }
 }

@@ -1,4 +1,5 @@
 import { Redirect, Route } from 'react-router-dom';
+import React, { useState } from 'react';
 import {
   IonApp,
   IonIcon,
@@ -15,54 +16,55 @@ import { IonReactRouter } from '@ionic/react-router';
 import { useTranslation } from 'react-i18next';
 import { book, search, person, add, people, list } from 'ionicons/icons';
 
+// Sayfalarımız
 import MyLogPage from './pages/MyLogPage';
 import DiscoverPage from './pages/DiscoverPage';
 import ProfilePage from './pages/ProfilePage';
 import SocialPage from './pages/SocialPage';
 import ListsPage from './pages/ListsPage';
 
-/* Core CSS required for Ionic components to work properly */
-import '@ionic/react/css/core.css';
+// Yeni Component'imiz
+import AddMovieModal from './components/AddMovieModal';
 
-/* Basic CSS for apps built with Ionic */
+/* CSS Dosyalarımız */
+import '@ionic/react/css/core.css';
 import '@ionic/react/css/normalize.css';
 import '@ionic/react/css/structure.css';
 import '@ionic/react/css/typography.css';
-
-/* Optional CSS utils */
 import '@ionic/react/css/padding.css';
 import '@ionic/react/css/float-elements.css';
 import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
-
-/* Theme variables */
 import './theme/variables.css';
-import './theme/global.css'; // <-- YENİ MODÜLER STİL DOSYAMIZ
+import './theme/global.css';
 
-
+// Diğer Sayfa Componentleri...
 const MovieDetailPage: React.FC = () => <IonApp><div>Film Detay</div></IonApp>;
-const SettingsPage: React.FC = () => <IonApp><div>Ayarlar</div></IonApp>;
-const PublicProfilePage: React.FC = () => <IonApp><div>Profil</div></IonApp>;
+// ...
 
 setupIonicReact();
 
 const App: React.FC = () => {
   const { t } = useTranslation();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  const openAddMovieModal = () => setIsModalOpen(true);
+  const closeAddMovieModal = () => setIsModalOpen(false);
 
   return (
     <IonApp>
       <IonReactRouter>
-        {/* BUTONU, HER ŞEYİN DIŞINA, EN ÜSTE KOYUYORUZ */}
-        <IonFab vertical="top" horizontal="end" slot="fixed" style={{ top: '54.96px', right: '1rem', transform: 'translateY(-50%)', zIndex: 9999 }}>
-          <IonFabButton size="small">
+        <IonFab vertical="top" horizontal="end" slot="fixed" style={{ top: '56px', right: '1rem', transform: 'translateY(-50%)', zIndex: 9999 }}>
+          <IonFabButton size="small" onClick={openAddMovieModal}>
             <IonIcon icon={add} />
           </IonFabButton>
         </IonFab>
-
+        
         <IonTabs>
           <IonRouterOutlet>
+            {/* ... Route'ların burada ... */}
             <Route exact path="/my-log" component={MyLogPage} />
             <Route exact path="/discover" component={DiscoverPage} />
             <Route exact path="/social" component={SocialPage} />
@@ -72,11 +74,10 @@ const App: React.FC = () => {
               <Redirect to="/discover" />
             </Route>
             <Route path="/movie/:id" component={MovieDetailPage} />
-            <Route path="/settings" component={SettingsPage} />
-            <Route path="/profile/:username" component={PublicProfilePage} />
           </IonRouterOutlet>
-
+          
           <IonTabBar slot="bottom">
+            {/* ... Tab Butonların burada ... */}
             <IonTabButton tab="my-log" href="/my-log">
               <IonIcon aria-hidden="true" icon={book} />
               <IonLabel>{t('tabs.myLog')}</IonLabel>
@@ -99,6 +100,10 @@ const App: React.FC = () => {
             </IonTabButton>
           </IonTabBar>
         </IonTabs>
+
+        {/* Artık tüm modal mantığı bu tek satırda */}
+        <AddMovieModal isOpen={isModalOpen} onDidDismiss={closeAddMovieModal} />
+
       </IonReactRouter>
     </IonApp>
   );

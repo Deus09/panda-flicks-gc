@@ -3,7 +3,21 @@
     "myLog": "My Log",
     "discover": "Discover",
     "profile": "Profile",
-    "social":"Feed",
+    "social": "Social",
     "lists": "Lists"
+  },
+  "addMovieModal": {
+    "title": "Add New Movie",
+    "movieTitleLabel": "Movie Title",
+    "movieTitlePlaceholder": "e.g., The Matrix",
+    "commentLabel": "Your Comment",
+    "commentPlaceholder": "What do you think about the movie?",
+    "saveButton": "Save",
+    "ratingLabel": "Your Rating:",
+    "watchDateLabel": "Watch Date",
+    "watchLaterLabel": "Watch Later",
+    "enhanceCommentButton": "Enhance My Comment",
+    "chatWithCharacterButton": "Chat with Character",
+    "cancelButton": "Cancel"
   }
 }

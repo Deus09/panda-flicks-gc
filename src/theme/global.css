@@ -9,3 +9,100 @@ ion-fab-button {
   --background-activated: #c45a11;
   --box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
+
+/* Özel Panda Kafası Görünümü için CSS */
+ion-range.panda-rating::part(thumb) {
+  visibility: hidden; /* Orijinal thumb'ı sakla */
+}
+
+ion-range.panda-rating .range-thumb-visual {
+  width: 30px; /* Panda kafası genişliği */
+  height: 30px; /* Panda kafası yüksekliği */
+  background: url('../assets/panda-head.png') center / contain no-repeat; /* Resim ve boyutlandırma */
+  position: absolute;
+  top: 50%;
+  left: var(--thumb-offset); /* Thumb'ın yatay pozisyonunu al */
+  transform: translate(-50%, -50%); /* Merkezi hizala */
+  pointer-events: none; /* Olayları altındaki range'e geçir */
+}
+
+ion-range.panda-rating:focus::part(thumb) {
+  box-shadow: none; /* Focus olduğunda varsayılan halkayı kaldır (isteğe bağlı) */
+}
+
+/* Pro Özellik Butonu Stilleri */
+.pro-feature-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end; /* İçeriği sağa yaslar */
+  padding-top: 4px;
+}
+
+.pro-feature-button {
+  --padding-start: 12px;
+  --padding-end: 12px;
+  font-size: 14px;
+  text-transform: none;
+  font-weight: 600;
+  /* DEĞİŞEN KISIMLAR */
+  --color: var(--ion-text-color-secondary); /* Ana renk yerine ikincil metin rengi */
+  --background: rgba(148, 163, 184, 0.1); /* İkincil metin renginin %10 opaklığında arkaplanı */
+  --border-radius: 10px;
+}
+
+.comment-area {
+--border-width: 0 0 1px 0; 
+--border-style: solid;
+--border-color: var(--ion-color-border); 
+padding-bottom: var(--spacing-xs); 
+margin-bottom: var(--spacing-sm); /* Altındaki eleman ile arasına boşluk */
+}
+
+.pro-badge {
+  background-color: var(--ion-color-warning); /* Sarı/Amber */
+  color: #1E293B; /* Koyu arkaplan rengi */
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  margin-left: 8px;
+}
+
+/* Karakterle Sohbet Et Butonu Stilleri */
+.chat-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* İçindeki butonu yatayda ortalar */
+  padding-top: 16px; /* Üstündeki elemanla arasına boşluk koyar */
+  padding-bottom: 8px;
+}
+
+.chat-button {
+  width: 70%; /* Genişliği %60 yapalım ki çok sıkışık durmasın */
+  height: 48px; /* Dokunma alanını rahatlatalım */
+  text-transform: none;
+  font-size: 15px;
+  font-weight: 600;
+  --color: white; /* Yazı rengi */
+  
+  /* İşte Şov Burada Başlıyor! */
+  --background: linear-gradient(45deg, var(--ion-color-primary), #F59E0B); /* Turuncudan Amber'a Gradient */
+  --background-hover: linear-gradient(45deg, #d96614, #d4880a); /* Üzerine gelince koyulaşan gradient */
+  --background-activated: linear-gradient(45deg, #c45a11, #b97709); /* Tıklayınca koyulaşan gradient */
+  --border-radius: 12px;
+  --box-shadow: 0 8px 16px rgba(var(--ion-color-primary-rgb), 0.3); /* Marka rengimizde yumuşak bir gölge */
+}
+
+/* Form etiketleri için standart stil */
+.form-label {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: var(--ion-text-color-secondary) !important;
+  margin-bottom: 4px; /* Etiketle içeriği arasına boşluk */
+  display: block; /* Tam genişlik kaplaması için */
+}
+
+/* Add Movie Modal Form Elemanları Arası Boşluk */
+.add-movie-form-list ion-item {
+  margin-bottom: var(--spacing-xs); /* 16px boşluk */
+}
