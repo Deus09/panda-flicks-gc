@@ -2,6 +2,8 @@
   "tabs": {
     "myLog": "My Log",
     "discover": "Discover",
-    "profile": "Profile"
+    "profile": "Profile",
+    "social":"Feed",
+    "lists": "Lists"
   }
 }

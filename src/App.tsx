@@ -10,7 +10,7 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { book, search, person } from 'ionicons/icons';
+import { book, search, people, list, person } from 'ionicons/icons';
 import { useTranslation } from 'react-i18next';
 
 // Yeniden adlandırdığımız sayfaları import ediyoruz
@@ -74,14 +74,27 @@ const App: React.FC = () => {
               <IonIcon aria-hidden="true" icon={book} />
               <IonLabel>{t('tabs.myLog')}</IonLabel>
             </IonTabButton>
+
             <IonTabButton tab="discover" href="/discover">
               <IonIcon aria-hidden="true" icon={search} />
               <IonLabel>{t('tabs.discover')}</IonLabel>
             </IonTabButton>
+
+            <IonTabButton tab="social" href="/social">
+              <IonIcon aria-hidden="true" icon={people} />
+              <IonLabel>{t('tabs.social')}</IonLabel>
+            </IonTabButton>
+
+            <IonTabButton tab="lists" href="/lists">
+              <IonIcon aria-hidden="true" icon={list} />
+              <IonLabel>{t('tabs.lists')}</IonLabel>
+            </IonTabButton>
+
             <IonTabButton tab="profile" href="/profile">
               <IonIcon aria-hidden="true" icon={person} />
               <IonLabel>{t('tabs.profile')}</IonLabel>
             </IonTabButton>
+
           </IonTabBar>
         </IonTabs>
       </IonReactRouter>

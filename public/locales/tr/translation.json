@@ -2,6 +2,8 @@
   "tabs": {
     "myLog": "İzlediklerim",
     "discover": "Keşfet",
-    "profile": "Profil"
+    "profile": "Profil",
+    "social":"Akış",
+    "lists": "Listeler"
   }
 }
