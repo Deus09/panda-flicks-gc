@@ -1,61 +1,118 @@
-/* For information on how to create your own theme, please see:
-http://ionicframework.com/docs/theming/ */
+/** Ionic CSS Variables **/
+/*
+ * Basitlik adına, Ionic'in tüm renk değişkenlerini burada tanımlıyoruz.
+ * Bu değişkenler, Ionic component'lerinin renklerini global olarak kontrol eder.
+ */
 
-/* --- Pandaflicks UI/UX v1.0 --- */
+/* --- Pandaflicks Renk Paleti v2.0 --- */
+
+/* 1. Genel Kurallar ve Yazı Tipi */
+/* -------------------------------------------------- */
+
+/* Google'dan Inter yazı tipini import et */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+/* :root seçicisi AÇIK TEMA (Light Mode) değişkenlerini tanımlar */
 :root {
+  /** A. Tipografi Kuralları */
   --ion-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Roboto', sans-serif;
   line-height: 1.5;
-  --ion-color-primary: #7F5AF0;
-  --ion-color-primary-rgb: 127,90,240;
+
+  /** B. Marka ve Sistem Renkleri (Açık Tema) */
+  /* Grup 1: Marka Rengi */
+  --ion-color-primary: #F97316;
+  --ion-color-primary-rgb: 249,115,22;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255,255,255;
-  --ion-color-primary-shade: #704ed3;
-  --ion-color-primary-tint: #8c69f2;
-  --ion-color-secondary: #2CB67D;
-  --ion-color-secondary-rgb: 44,182,125;
-  --ion-color-secondary-contrast: #ffffff;
-  --ion-color-secondary-contrast-rgb: 255,255,255;
-  --ion-color-secondary-shade: #27a06e;
-  --ion-color-secondary-tint: #41bd89;
-  --ion-color-success: #2dd36f;
-  --ion-color-warning: #ffc409;
-  --ion-color-danger: #eb445a;
+  --ion-color-primary-shade: #d96614;
+  --ion-color-primary-tint: #f9822e;
+
+  /* Grup 4: Sistem Mesajları */
+  --ion-color-success: #22C55E;
+  --ion-color-warning: #F59E0B;
+  --ion-color-danger: #EF4444;
+  
+  /** C. Semantik UI Renkleri (Açık Tema) */
   --ion-background-color: #f4f5f8;
   --ion-text-color: #242629;
   --ion-surface-color: #ffffff;
   --ion-toolbar-background: var(--ion-surface-color);
+  
+  /** D. 8px Izgara Sistemi için Boşluk Değişkenleri */
   --spacing-xs: 8px;
   --spacing-sm: 16px;
   --spacing-md: 24px;
   --spacing-lg: 32px;
   --spacing-xl: 40px;
+
+  /** E. Ionic Varsayılanlarını Ezme */
   --ion-padding: var(--spacing-sm);
   --ion-margin: var(--spacing-sm);
   --ion-item-padding-start: var(--spacing-sm);
   --ion-card-border-radius: 16px;
   --ion-button-border-radius: 12px;
+
+  /** F. Yeni Renk Rolleri (Açık Tema) */
+  --ion-color-border: #d1d1d6;
+  --ion-text-color-secondary: #6b6b6b;
+  --ion-text-color-disabled: #a1a1a1;
 }
 
+/* 2. KARANLIK TEMA (Sinematik Gece) */
+/* -------------------------------------------------- */
 body.dark {
-  --ion-background-color: #16161a;
-  --ion-text-color: #fffffe;
-  --ion-surface-color: #242629;
+  /** A. Marka ve Sistem Renkleri (Değişmiyor) */
+  --ion-color-primary: #F97316;
+  --ion-color-success: #22C55E;
+  --ion-color-warning: #F59E0B;
+  --ion-color-danger: #EF4444;
+
+  /** B. Arayüz Yüzeyleri (Karanlık Nötrler) */
+  /* Grup 2 */
+  --ion-background-color: #1E293B;  /* Arka Plan */
+  --ion-surface-color: #334155;     /* Yüzey */
+  --ion-color-border: #475569;      /* Sınır */
+  --ion-color-pressed: #475569;     /* Basılma */
+
+  /** C. Metinler (Açık Tonlar) */
+  /* Grup 3 */
+  --ion-text-color: #F8FAFC;               /* Ana Metin */
+  --ion-text-color-secondary: #94A3B8;     /* İkincil Metin */
+  --ion-text-color-disabled: #475569;      /* Pasif Metin */
+
+  /** D. Semantik UI Renkleri (Karanlık Tema) */
   --ion-toolbar-background: var(--ion-surface-color);
 }
-body.dark ion-card {
-  box-shadow: none;
-}
+
+
+/* 3. Global Component Stilleri */
+/* -------------------------------------------------- */
+
 ion-card {
   background: var(--ion-surface-color);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   margin: var(--spacing-sm) 0;
 }
-h1, .h1 { font-size: 26px; font-weight: 700; }
-h2, .h2 { font-size: 22px; font-weight: 600; }
-p, .p { font-size: 16px; font-weight: 400; color: #6b6b6b; }
-body.dark p, body.dark .p { color: #94a1b2; }
+body.dark ion-card {
+  box-shadow: none;
+}
+
+/* Header altındaki çizgi */
+ion-header ion-toolbar {
+  --border-width: 0 0 0.5px 0;
+  --border-color: var(--ion-color-border);
+}
+
+/* 4. Tipografi Hiyerarşisi */
+/* -------------------------------------------------- */
+h1, .h1 { font-size: 26px; font-weight: 700; color: var(--ion-text-color); }
+h2, .h2 { font-size: 22px; font-weight: 600; color: var(--ion-text-color); }
+
+/* Paragraf metinleri ikincil metin rengini kullanır */
+p, .p { font-size: 16px; font-weight: 400; color: var(--ion-text-color-secondary); }
+
+/* 5. Yardımcı Sınıflar */
+/* -------------------------------------------------- */
 .content-container {
   max-width: 960px;
   margin-left: auto;

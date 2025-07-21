@@ -1,0 +1,11 @@
+/* ========================================================================== */
+/* Özel Component Stilleri                               */
+/* ========================================================================== */
+
+/* Floating Action Button (FAB) için özel stiller */
+ion-fab-button {
+  --background: var(--ion-color-primary);
+  --background-hover: #d96614;
+  --background-activated: #c45a11;
+  --box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
