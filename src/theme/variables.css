@@ -1,2 +1,65 @@
 /* For information on how to create your own theme, please see:
 http://ionicframework.com/docs/theming/ */
+
+/* --- Pandaflicks UI/UX v1.0 --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --ion-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Roboto', sans-serif;
+  line-height: 1.5;
+  --ion-color-primary: #7F5AF0;
+  --ion-color-primary-rgb: 127,90,240;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255,255,255;
+  --ion-color-primary-shade: #704ed3;
+  --ion-color-primary-tint: #8c69f2;
+  --ion-color-secondary: #2CB67D;
+  --ion-color-secondary-rgb: 44,182,125;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255,255,255;
+  --ion-color-secondary-shade: #27a06e;
+  --ion-color-secondary-tint: #41bd89;
+  --ion-color-success: #2dd36f;
+  --ion-color-warning: #ffc409;
+  --ion-color-danger: #eb445a;
+  --ion-background-color: #f4f5f8;
+  --ion-text-color: #242629;
+  --ion-surface-color: #ffffff;
+  --ion-toolbar-background: var(--ion-surface-color);
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 40px;
+  --ion-padding: var(--spacing-sm);
+  --ion-margin: var(--spacing-sm);
+  --ion-item-padding-start: var(--spacing-sm);
+  --ion-card-border-radius: 16px;
+  --ion-button-border-radius: 12px;
+}
+
+body.dark {
+  --ion-background-color: #16161a;
+  --ion-text-color: #fffffe;
+  --ion-surface-color: #242629;
+  --ion-toolbar-background: var(--ion-surface-color);
+}
+body.dark ion-card {
+  box-shadow: none;
+}
+ion-card {
+  background: var(--ion-surface-color);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  margin: var(--spacing-sm) 0;
+}
+h1, .h1 { font-size: 26px; font-weight: 700; }
+h2, .h2 { font-size: 22px; font-weight: 600; }
+p, .p { font-size: 16px; font-weight: 400; color: #6b6b6b; }
+body.dark p, body.dark .p { color: #94a1b2; }
+.content-container {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-sm);
+  padding-right: var(--spacing-sm);
+}
