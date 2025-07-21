@@ -1,0 +1,7 @@
+{
+  "name": "pandaflicks",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
