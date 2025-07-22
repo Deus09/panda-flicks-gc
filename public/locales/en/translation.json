@@ -18,6 +18,7 @@
     "watchLaterLabel": "Watch Later",
     "enhanceCommentButton": "Enhance My Comment",
     "chatWithCharacterButton": "Chat with Character",
-    "cancelButton": "Cancel"
+    "cancelButton": "Cancel",
+    "spoilerAlertLabel": "Contains spoiler"
   }
 }

@@ -34,7 +34,8 @@ ion-range.panda-rating:focus::part(thumb) {
 .pro-feature-container {
   width: 100%;
   display: flex;
-  justify-content: flex-end; /* İçeriği sağa yaslar */
+  justify-content: space-between; /* İçeriği iki uca yaslar */
+  align-items: center; /* Dikey olarak ortalar */
   padding-top: 4px;
 }
 
@@ -68,30 +69,59 @@ margin-bottom: var(--spacing-sm); /* Altındaki eleman ile arasına boşluk */
   margin-left: 8px;
 }
 
-/* Karakterle Sohbet Et Butonu Stilleri */
-.chat-button-container {
-  width: 100%;
+/* Özellik Kartı Stilleri */
+.feature-card {
   display: flex;
-  justify-content: center; /* İçindeki butonu yatayda ortalar */
-  padding-top: 16px; /* Üstündeki elemanla arasına boşluk koyar */
-  padding-bottom: 8px;
+  align-items: center;
+  width: 100%;
+  padding: var(--spacing-sm); /* 16px */
+  border: 1px solid var(--ion-color-border);
+  border-radius: 12px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  background-color: rgba(var(--ion-color-primary-rgb), 0.05);
+
 }
 
-.chat-button {
-  width: 70%; /* Genişliği %60 yapalım ki çok sıkışık durmasın */
-  height: 48px; /* Dokunma alanını rahatlatalım */
-  text-transform: none;
-  font-size: 15px;
-  font-weight: 600;
-  --color: white; /* Yazı rengi */
-  
-  /* İşte Şov Burada Başlıyor! */
-  --background: linear-gradient(45deg, var(--ion-color-primary), #F59E0B); /* Turuncudan Amber'a Gradient */
-  --background-hover: linear-gradient(45deg, #d96614, #d4880a); /* Üzerine gelince koyulaşan gradient */
-  --background-activated: linear-gradient(45deg, #c45a11, #b97709); /* Tıklayınca koyulaşan gradient */
-  --border-radius: 12px;
-  --box-shadow: 0 8px 16px rgba(var(--ion-color-primary-rgb), 0.3); /* Marka rengimizde yumuşak bir gölge */
+.feature-card:active {
+  background-color: rgba(var(--ion-color-primary-rgb), 0.1); /* Tıklayınca hafif renklen */
 }
+
+.feature-card-icon {
+  font-size: 24px;
+  color: var(--ion-color-primary);
+  margin-right: 12px;
+}
+
+.feature-card-text {
+  flex-grow: 1; /* Metin alanının kalan tüm boşluğu kaplamasını sağla */
+}
+
+.feature-card-title {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--ion-text-color);
+  display: flex;
+  align-items: center;
+}
+
+.feature-card-title .pro-badge {
+  margin-left: 8px; /* Başlık ile PRO rozeti arasına boşluk */
+}
+
+
+.feature-card-subtitle {
+  font-size: 13px;
+  color: var(--ion-text-color-secondary);
+  margin-top: 2px;
+}
+
+.feature-card-chevron {
+  font-size: 20px;
+  color: var(--ion-text-color-secondary);
+}
+  
 
 /* Form etiketleri için standart stil */
 .form-label {
@@ -105,4 +135,16 @@ margin-bottom: var(--spacing-sm); /* Altındaki eleman ile arasına boşluk */
 /* Add Movie Modal Form Elemanları Arası Boşluk */
 .add-movie-form-list ion-item {
   margin-bottom: var(--spacing-xs); /* 16px boşluk */
+}
+
+/* Spoiler Toggle Stilleri */
+.spoiler-toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Yazı ile toggle arasına boşluk */
+}
+
+.spoiler-toggle-container ion-label {
+  font-size: 14px;
+  color: var(--ion-text-color-secondary);
 }

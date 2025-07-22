@@ -18,6 +18,7 @@
     "watchLaterLabel": "Daha Sonra İzle",
     "enhanceCommentButton": "Yorumumu Geliştir",
     "chatWithCharacterButton": "Karakterle Sohbet Et",
-    "cancelButton": "İptal"
+    "cancelButton": "İptal",
+    "spoilerAlertLabel": "Spoiler içerir"
   }
 }
