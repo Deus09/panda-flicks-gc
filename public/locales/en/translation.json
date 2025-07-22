@@ -19,6 +19,7 @@
     "enhanceCommentButton": "Enhance My Comment",
     "chatWithCharacterButton": "Chat with Character",
     "cancelButton": "Cancel",
-    "spoilerAlertLabel": "Contains spoiler"
+    "spoilerAlertLabel": "This comment might contain spoilers."
+
   }
 }

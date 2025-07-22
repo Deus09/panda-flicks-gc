@@ -19,6 +19,8 @@
     "enhanceCommentButton": "Yorumumu Geliştir",
     "chatWithCharacterButton": "Karakterle Sohbet Et",
     "cancelButton": "İptal",
-    "spoilerAlertLabel": "Spoiler içerir"
+    "spoilerAlertLabel": "Bu yorum spoiler içerebilir."
   }
+
+  
 }

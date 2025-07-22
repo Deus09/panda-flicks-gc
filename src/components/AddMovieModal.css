@@ -1,0 +1,190 @@
+/* src/components/AddMovieModal.css */
+
+/* Puanlama çubuğu kaydırıcısı için yıldız ikonu */
+ion-range::part(knob) {
+  /* Knob'un arka plan rengini ve gölgesini ayarlayın */
+  background: var(--ion-color-primary) !important; /* Ana rengimizi arka plan yapıyoruz (turuncu) */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important; /* Hafif bir gölge ekliyoruz */
+
+  /* Knob'un boyutunu ve şeklini ayarlayın */
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 50% !important; /* Yuvarlak şekil */
+
+  /* İçindeki SVG'yi ortalamak için Flexbox kullanıyoruz */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  position: relative; /* ::after için referans noktası olmalı */
+  overflow: hidden; /* Taşmaları gizle */
+}
+
+/* Knob'un içine yıldız ikonunu ::after pseudo-elementi ile yerleştirin */
+ion-range::part(knob)::after {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="%23FFFFFF" d="M316.9 18C311.6 7 300.4 0 288.0 0C275.6 0 264.4 7 259.1 18L171.5 194.3L157.9 220.6L127.8 225.9L53.2 237.4C41.7 239.4 32.2 249.2 31.2 260.7C30.3 272.2 35.2 283.1 44.4 289.4L110.1 334.2L116.1 349.5L102.5 419.3L81.8 493.5C78.5 504.1 84.8 513.9 95.4 516.2C106 518.5 117.5 514.7 124.8 505.7L193.5 410.7L207.2 391.2L227.7 381.1L306.5 340.5L381.8 505.7C389.1 514.7 400.6 518.5 411.2 516.2C421.8 513.9 428.1 504.1 424.8 493.5L404.1 419.3L390.5 349.5L396.5 334.2L462.2 289.4C471.4 283.1 476.3 272.2 475.4 260.7C474.4 249.2 464.9 239.4 453.4 237.4L378.8 225.9L348.7 220.6L335.1 194.3L316.9 18Z"/></svg>');
+  display: block; /* Yıldızın boyutlarını almasını sağlar */
+  width: 20px; /* Yıldız ikonunun boyutu */
+  height: 20px; /* Yıldız ikonunun boyutu */
+}
+
+/* Varsayılan pin (sayı balonu) elementini görünür yapın ve konumlandırın */
+ion-range .range-pin {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: absolute;
+  top: -30px; /* Biraz daha yukarı taşıdık */
+  left: 50%;
+  transform: translateX(calc(-50% + 1px)); /* 1px sağa kaydırma denemesi */
+  background: var(--ion-color-primary);
+  color: var(--ion-color-primary-contrast);
+  font-size: 0.8em;
+  padding: 4px 8px;
+  border-radius: 4px;
+  min-width: unset;
+  min-height: unset;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  pointer-events: none;
+  z-index: 101;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* IonRange bileşeninin genel padding'ini ayarlayın */
+ion-range {
+  padding-left: 15px !important; /* Sol taraftan boşluk ekle */
+  padding-right: 15px !important; /* Sağ taraftan boşluk ekle */
+}
+
+/* Yorum Metin Alanı Çerçevesi */
+.comment-textarea-container {
+  position: relative; /* Sabit buton için konumlandırma bağlamı */
+  padding-bottom: var(--spacing-sm); /* Alttaki elementle boşluk */
+}
+
+.comment-textarea {
+  border: 1px solid var(--ion-color-border); /* Standart border */
+  border-radius: 8px;
+  padding: 10px 12px;
+  --padding-start: 0; /* Ionic'in varsayılan padding'ini sıfırla */
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  margin-top: 4px; /* Etiketten boşluk */
+  width: 100%; /* Genişliği tam yap */
+  box-sizing: border-box; /* Padding ve border'ın genişliğe dahil olmasını sağla */
+}
+
+.comment-textarea::part(textarea) {
+  font-family: inherit; /* Ana fontu kullan */
+  font-size: inherit; /* Ana font boyutunu kullan */
+  color: var(--ion-text-color);
+  padding: 0; /* İç textarea için dikey padding */
+  min-height: 80px; /* Minimum yükseklik */
+}
+
+/* IonTextarea içinde placeholder rengini ayarlamak için */
+.comment-textarea::part(placeholder) {
+  color: var(--ion-text-color-secondary);
+  opacity: 0.7;
+}
+
+/* Odaklandığında çerçevenin rengini değiştirme */
+.comment-textarea.ion-focused {
+  border-color: var(--ion-color-primary);
+}
+
+/* Yorum başlığı için stil */
+.comment-label-container {
+  margin-bottom: 4px; /* Etiketle text area arasına boşluk */
+  display: block;
+}
+
+/* Sabit Konumlu Yorumumu Geliştir Icon Butonu Stili */
+.enhance-comment-icon-button {
+  position: absolute;
+  bottom: 0px; /* Yorum alanının altından uzaklık */
+  right: 25px; /* Yorum alanının sağından uzaklık */
+  z-index: 10;
+  --padding-start: 10px; /* Butonun kendi iç boşluğu */
+  --padding-end: 10px;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  height: 40px; /* Butonun sabit yüksekliği */
+  width: 40px; /* Butonun sabit genişliği */
+  border-radius: 50%; /* Yuvarlak buton */
+  background: var(--ion-color-light); /* Arka plan rengi */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Hafif gölge */
+  color: var(--ion-color-primary); /* İkon rengi */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.enhance-comment-icon-button ion-icon {
+  font-size: 1.2rem; /* İkon boyutunu büyüttük */
+}
+
+.enhance-comment-icon-button .pro-badge {
+  position: absolute; /* Butonun sağ üstüne konumlandırmak için */
+  top: -10px; /* Rozeti biraz daha yukarı taşıdık */
+  right: -12px; /* Rozeti biraz daha sağa taşıdık */
+  padding: 1px 4px; /* Rozet iç boşluğunu azalttık */
+  font-size: 0.55rem; /* Rozet font boyutunu daha da küçülttük */
+  border-radius: 6px; /* Rozet köşelerini biraz daha yuvarladık */
+  background-color: var(--ion-color-warning); /* Sarı/Amber */
+  color: #1E293B; /* Koyu metin */
+  z-index: 11; /* Butondan daha üstte olması için */
+  min-width: unset; /* Minimum genişliği kaldır */
+  min-height: unset; /* Minimum yüksekliği kaldır */
+  line-height: 1; /* Metin yüksekliğini ayarla */
+}
+
+/* Spoiler Checkbox ve Etiket Stilleri */
+.spoiler-container {
+  display: flex;
+  flex-direction: column; /* İç öğeleri alt alta sırala */
+  padding-left: 16px; /* Sol kenardan boşluk */
+  margin-top: -15px; /* Boşluğu azalttık, metin kutusuna daha yakın */
+  margin-bottom: var(--spacing-lg); /* Alttaki elementle boşluk */
+}
+
+.spoiler-checkbox-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px; /* Checkbox ve yazı arasına boşluk */
+}
+
+.spoiler-checkbox-row ion-checkbox {
+  margin-right: 8px; /* Checkbox ve label arasına boşluk */
+}
+
+
+/* Add Movie Modal Form Elemanları Arası Boşluk */
+.add-movie-form-list ion-item {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Puan Değerini Gösteren Span Stili */
+.rating-display {
+  font-weight: bold; /* Puanı daha belirgin yap */
+  color: var(--ion-color-primary); /* Ana renk ile göster */
+  font-size: 1em; /* Normal font boyutuyla aynı veya biraz daha büyük */
+}
+
+/* Rating Label Container Stili */
+.rating-label-container {
+  display: flex; /* İçeriği yatayda hizalamak için flexbox kullan */
+  align-items: center; /* Dikeyde ortala */
+  width: 100%; /* Tam genişlik kapla */
+  margin-bottom: 4px; /* Range ile arasına boşluk */
+}
+
+/* Form etiketleri için standart stil (Genel form-label stilini etkilememek için) */
+.form-label {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: var(--ion-text-color-secondary) !important;
+  display: block; /* Tam genişlik kaplaması için */
+}

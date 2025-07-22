@@ -1,33 +1,9 @@
-/* ========================================================================== */
-/* Özel Component Stilleri                               */
-/* ========================================================================== */
-
 /* Floating Action Button (FAB) için özel stiller */
 ion-fab-button {
   --background: var(--ion-color-primary);
   --background-hover: #d96614;
   --background-activated: #c45a11;
   --box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-}
-
-/* Özel Panda Kafası Görünümü için CSS */
-ion-range.panda-rating::part(thumb) {
-  visibility: hidden; /* Orijinal thumb'ı sakla */
-}
-
-ion-range.panda-rating .range-thumb-visual {
-  width: 30px; /* Panda kafası genişliği */
-  height: 30px; /* Panda kafası yüksekliği */
-  background: url('../assets/panda-head.png') center / contain no-repeat; /* Resim ve boyutlandırma */
-  position: absolute;
-  top: 50%;
-  left: var(--thumb-offset); /* Thumb'ın yatay pozisyonunu al */
-  transform: translate(-50%, -50%); /* Merkezi hizala */
-  pointer-events: none; /* Olayları altındaki range'e geçir */
-}
-
-ion-range.panda-rating:focus::part(thumb) {
-  box-shadow: none; /* Focus olduğunda varsayılan halkayı kaldır (isteğe bağlı) */
 }
 
 /* Pro Özellik Butonu Stilleri */
@@ -49,14 +25,6 @@ ion-range.panda-rating:focus::part(thumb) {
   --color: var(--ion-text-color-secondary); /* Ana renk yerine ikincil metin rengi */
   --background: rgba(148, 163, 184, 0.1); /* İkincil metin renginin %10 opaklığında arkaplanı */
   --border-radius: 10px;
-}
-
-.comment-area {
---border-width: 0 0 1px 0; 
---border-style: solid;
---border-color: var(--ion-color-border); 
-padding-bottom: var(--spacing-xs); 
-margin-bottom: var(--spacing-sm); /* Altındaki eleman ile arasına boşluk */
 }
 
 .pro-badge {
@@ -132,19 +100,3 @@ margin-bottom: var(--spacing-sm); /* Altındaki eleman ile arasına boşluk */
   display: block; /* Tam genişlik kaplaması için */
 }
 
-/* Add Movie Modal Form Elemanları Arası Boşluk */
-.add-movie-form-list ion-item {
-  margin-bottom: var(--spacing-xs); /* 16px boşluk */
-}
-
-/* Spoiler Toggle Stilleri */
-.spoiler-toggle-container {
-  display: flex;
-  align-items: center;
-  gap: 8px; /* Yazı ile toggle arasına boşluk */
-}
-
-.spoiler-toggle-container ion-label {
-  font-size: 14px;
-  color: var(--ion-text-color-secondary);
-}
